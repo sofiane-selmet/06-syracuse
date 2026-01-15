@@ -18,7 +18,6 @@ def syr_plot(lsyr):
     t = Scatter(x=x, y=lsyr, mode="lines+markers", marker_color = "blue")
     fig.add_trace(t)
     fig.show()
-    # fig.write_html('fig.html', include_plotlyjs='cdn')
     return None
 #######################
 
@@ -33,7 +32,13 @@ def syracuse_l(n):
     """
 
     # votre code ici 
-    l = [ ]
+    l = [n]
+    while n != 1:
+        if n % 2 == 0:
+            n = n // 2
+        else:
+            n = 3 * n + 1
+        l.append(n)
     return l
 
 def temps_de_vol(l):
@@ -47,8 +52,7 @@ def temps_de_vol(l):
     """
     
     # votre code ici
-
-    n = 0
+    n = len(l) - 1
     return n
 
 def temps_de_vol_en_altitude(l):
@@ -62,8 +66,13 @@ def temps_de_vol_en_altitude(l):
     """
 
     # votre code ici
-
+    n0 = l[0]
     n = 0
+    for i in l[1:]:
+        if i > n0:
+            n += 1
+        else:
+            return n
     return n
 
 
@@ -78,8 +87,7 @@ def altitude_maximale(l):
     """
     
     # votre code ici
-    
-    n = 0
+    n = max(l)
     return n
 
 
